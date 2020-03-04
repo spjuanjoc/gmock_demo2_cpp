@@ -2,18 +2,21 @@
 #include "Module/Module.h"
 
 #include <iostream>
-#include <memory>
+//#include <memory>
 #include <gtest/gtest.h>
+
+void foo()
+{
+  Business::Logic bl{};
+  auto m = new (Module::Module)();/// \todo to shared_ptr
+  bl.bar(m);
+}
 
 int main(int argc, char** argv)
 {
   std::cout << "Hello, World!" << std::endl;
-
-//  Business::Logic bl;
-//  Module::Module* m = new (Module::Module)();
-//  bl.bar(m);
+  foo();
 
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
-  return 0;
 }

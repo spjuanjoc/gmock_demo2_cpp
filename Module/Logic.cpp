@@ -7,10 +7,11 @@
 
 bool Business::Logic::bar(Module::IModule* pMod)
 {
-  bool result = false;
+  bool result;
 
   if(_member)
   {
+    pMod->foo();
     result = true;
   }
   else
@@ -18,7 +19,6 @@ bool Business::Logic::bar(Module::IModule* pMod)
     result = false;
   }
 
-  pMod->foo();
 
   return result;
 }
